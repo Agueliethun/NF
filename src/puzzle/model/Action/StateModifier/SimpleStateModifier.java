@@ -16,7 +16,7 @@ public class SimpleStateModifier extends StateModifier {
     }
 
     @Override
-    public void modify(StateData data) {
+    public void modify(StateData data, StateData context) {
         data.put(getKey(), value);
     }
 

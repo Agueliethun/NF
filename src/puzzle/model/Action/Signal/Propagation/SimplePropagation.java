@@ -14,6 +14,14 @@ public class SimplePropagation extends Propagation {
         this.position = position;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
     @Override
     public Position propagate(Position oldPos) {
         return position;

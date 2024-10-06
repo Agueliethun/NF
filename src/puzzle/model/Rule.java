@@ -1,5 +1,7 @@
 package puzzle.model;
 
+import puzzle.model.Accessor.Accessor;
+import puzzle.model.Accessor.PropertyAccessor;
 import puzzle.util.Copyable;
 
 import java.util.Map;
@@ -17,46 +19,41 @@ public class Rule implements Copyable<Rule> {
 	}
 
 	private Comparison comparison;
-	private String propertyName;
-	private Comparable target;
+	private Accessor propA;
+	private Accessor propB;
 
 	public Rule() {
 		comparison = Comparison.EQ;
-		propertyName = "";
-		target = false;
 	}
 
-	public Rule(Comparison comparison, String propertyName, Comparable target) {
-		this.comparison = comparison;
-		this.propertyName = propertyName;
-		this.target = target;
+	public Rule(Comparison c, Accessor a, Accessor b) {
+		comparison = c;
+		propA = a;
+		propB = b;
 	}
 
 	public boolean fulfilledBy(StateData stateData) {
-		Map<String, Comparable> data = stateData.getData();
-		if (data.containsKey(propertyName)) {
-			Comparable value = data.get(propertyName);
+		Comparable a = propA.get(stateData);
+		Comparable b = propB.get(stateData);
 
-			if (value == null) {
-				return false;
-			}
+		if (a == null || b == null) {
+			return false;
+		}
 
-			int comparisonValue = target.compareTo(value);
-
-			switch (comparison) {
-				case EQ:
-					return comparisonValue == 0;
-				case NE:
-					return comparisonValue != 0;
-				case GT:
-					return comparisonValue > 0;
-				case LT:
-					return comparisonValue < 0;
-				case GTE:
-					return comparisonValue >= 0;
-				case LTE:
-					return comparisonValue <= 0;
-			}
+		int comparisonValue = a.compareTo(b);
+		switch (comparison) {
+			case EQ:
+				return comparisonValue == 0;
+			case NE:
+				return comparisonValue != 0;
+			case GT:
+				return comparisonValue > 0;
+			case LT:
+				return comparisonValue < 0;
+			case GTE:
+				return comparisonValue >= 0;
+			case LTE:
+				return comparisonValue <= 0;
 		}
 
 		return false;
@@ -64,6 +61,10 @@ public class Rule implements Copyable<Rule> {
 
 	@Override
 	public Rule copy() {
-		return new Rule(comparison, propertyName, target);
+		Rule c = new Rule();
+		c.comparison = comparison;
+		c.propA = propA.copy();
+		c.propB = propB.copy();
+		return c;
 	}
 }

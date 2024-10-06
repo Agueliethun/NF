@@ -1,6 +1,6 @@
 package puzzle.model;
 
-public class Position {
+public class Position implements Comparable<Position> {
 	public int x;
 	public int y;
 
@@ -14,6 +14,10 @@ public class Position {
 
 	public Position copy() {
 		return new Position(x, y);
+	}
+
+	public boolean isValid() {
+		return x > -1 && y > -1;
 	}
 
 	@Override
@@ -40,5 +44,10 @@ public class Position {
 	@Override
 	public String toString() {
 		return "x: " + x + ", y: " + y;
+	}
+
+	@Override
+	public int compareTo(Position o) {
+		return Math.abs(o.x - x) + Math.abs(o.y - y) ;
 	}
 }

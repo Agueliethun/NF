@@ -1,49 +1,69 @@
-puzzle/util/Copyable.java
- puzzle.util.Copyable
 puzzle/model/Action/Signal/Propagation/Propagation.java
  puzzle.model.Action.Signal.Propagation.Propagation
 puzzle/model/Position.java
  puzzle.model.Position
-puzzle/model/Action/Signal/Propagation/SimplePropagation.java
- puzzle.model.Action.Signal.Propagation.SimplePropagation
-puzzle/util/ObjectUtil.java
- puzzle.util.ObjectUtil
-puzzle/model/StatefulObject.java
- puzzle.model.StatefulObject
 puzzle/model/Action/Signal/Provider/SignalProvider.java
  puzzle.model.Action.Signal.Provider.SignalProvider
-puzzle/model/Action/MoveAction.java
- puzzle.model.Action.MoveAction
-puzzle/model/Interaction.java
- puzzle.model.Interaction
+puzzle/util/ObjectUtil.java
+ puzzle.util.ObjectUtil
 puzzle/model/Action/Action.java
  puzzle.model.Action.Action
 puzzle/model/Action/Signal/Signal.java
  puzzle.model.Action.Signal.Signal
+puzzle/model/Accessor/PropertyAccessor.java
+ puzzle.model.Accessor.PropertyAccessor
+puzzle/model/Action/Signal/Provider/DynamicSignalProvider.java
+ puzzle.model.Action.Signal.Provider.DynamicSignalProvider
 puzzle/model/Action/StateModifier/SimpleStateModifier.java
  puzzle.model.Action.StateModifier.SimpleStateModifier
-puzzle/model/StateData.java
- puzzle.model.StateData
+puzzle/model/Accessor/PositionFromDirection.java
+ puzzle.model.Accessor.PositionFromDirection
 puzzle/model/Rule.java
  puzzle.model.Rule
  puzzle.model.Rule$1
  puzzle.model.Rule$Comparison
+puzzle/model/Action/StateChangeAction.java
+ puzzle.model.Action.StateChangeAction
+puzzle/ui/Provider.java
+ puzzle.ui.Provider
+puzzle/model/State.java
+ puzzle.model.State
+puzzle/model/Action/DirectionMoveAction.java
+ puzzle.model.Action.DirectionMoveAction
+puzzle/model/Action/Signal/Provider/SimpleSignalProvider.java
+ puzzle.model.Action.Signal.Provider.SimpleSignalProvider
 puzzle/model/Action/StateModifier/StateModifier.java
  puzzle.model.Action.StateModifier.StateModifier
+puzzle/model/Action/MoveAction.java
+ puzzle.model.Action.MoveAction
+puzzle/model/StateData.java
+ puzzle.model.StateData
+puzzle/model/Action/Signal/Propagation/SimplePropagation.java
+ puzzle.model.Action.Signal.Propagation.SimplePropagation
+puzzle/model/Interaction.java
+ puzzle.model.Interaction
+puzzle/model/Action/StateModifier/AccessorModifier.java
+ puzzle.model.Action.StateModifier.AccessorModifier
+puzzle/util/Copyable.java
+ puzzle.util.Copyable
+puzzle/model/Accessor/Accessor.java
+ puzzle.model.Accessor.Accessor
+puzzle/ui/LetterCanvas.java
+ puzzle.ui.LetterCanvas
 puzzle/model/Puzzle.java
  puzzle.model.Puzzle
  puzzle.model.Puzzle$Input
  puzzle.model.Puzzle$Tuple
-puzzle/model/Action/StateChangeAction.java
- puzzle.model.Action.StateChangeAction
-puzzle/ui/LetterCanvas.java
- puzzle.ui.LetterCanvas
-puzzle/model/State.java
- puzzle.model.State
-puzzle/model/Action/Signal/Provider/SimpleSignalProvider.java
- puzzle.model.Action.Signal.Provider.SimpleSignalProvider
+puzzle/model/StatefulObject.java
+ puzzle.model.StatefulObject
+puzzle/model/Accessor/ConstantAccessor.java
+ puzzle.model.Accessor.ConstantAccessor
+puzzle/model/Accessor/NotAccessor.java
+ puzzle.model.Accessor.NotAccessor
 puzzle/ui/InputInterface.java
  puzzle.ui.InputInterface
+puzzle/model/Accessor/IfAccessor.java
+ puzzle.model.Accessor.IfAccessor
 puzzle/model/Action/SignalAction.java
  puzzle.model.Action.SignalAction
 puzzle/Main.java

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.lang.Comparable;
 
-public class StateData implements Copyable<StateData> {
+public class StateData implements Copyable<StateData>, Comparable<StateData> {
 	private Map<String, Comparable> data;
 
 	public StateData() {
@@ -48,5 +48,10 @@ public class StateData implements Copyable<StateData> {
 			hashcode = 7 * hashcode + entry.hashCode();
 		}
 		return hashcode;
+	}
+
+	@Override
+	public int compareTo(StateData o) {
+		return 0;
 	}
 }

@@ -1,6 +1,7 @@
 package puzzle.model.Action.Signal.Provider;
 
 import puzzle.model.Action.Signal.Signal;
+import puzzle.model.StateData;
 
 public class SimpleSignalProvider extends SignalProvider {
     private Signal signal;
@@ -13,8 +14,8 @@ public class SimpleSignalProvider extends SignalProvider {
         this.signal = signal;
     }
 
-    public Signal getSignal(Signal oldSignal) {
-        return signal;
+    public Signal getSignal(StateData data) {
+        return signal.copy();
     }
 
     @Override

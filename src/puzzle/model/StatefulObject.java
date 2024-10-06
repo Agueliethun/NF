@@ -29,18 +29,12 @@ public class StatefulObject implements Copyable<StatefulObject> {
 	}
 
 	public void apply(Signal signal) {
+		Puzzle.globalInteractions.forEach(i -> i.apply(signal, this));
 		interactions.forEach(i -> i.apply(signal, this));
 	}
 
 	public StateData getState() {
 		return state;
-	}
-
-	public void offsetPosition(Position offset) {
-		Position oldPos = position;
-		position.offset(offset);
-
-		parentState.moveObject(this, oldPos);
 	}
 
 	public Position getPosition() {

@@ -33,6 +33,8 @@ public class Puzzle {
 	private State state;
 	private List<Rule> winConditions;
 
+	public static List<Interaction> globalInteractions = new ArrayList<>();
+
 	private transient Map<State, List<Tuple<Input, State>>> stateMap;
 
 	public Puzzle() {
@@ -97,6 +99,7 @@ public class Puzzle {
 	public void input(Input input) {
 		Signal signal = new Signal();
 		signal.getState().put("inputName", input.name());
+		signal.getState().put("type", "input");
 		for (StatefulObject object : state.getAllObjects()) {
 			object.apply(signal);
 		}
