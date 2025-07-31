@@ -50,10 +50,10 @@ public class InputInterface implements KeyListener {
             case 'l':
                 puzzle.input(Puzzle.Input.RIGHT);
                 break;
-            case 'v':
+            case 'c':
                 puzzle.input(Puzzle.Input.ONE);
                 break;
-            case 'c':
+            case 'v':
                 puzzle.input(Puzzle.Input.TWO);
                 break;
             case 'q':

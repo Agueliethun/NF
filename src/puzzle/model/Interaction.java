@@ -12,17 +12,20 @@ import java.util.List;
 public class Interaction implements Copyable<Interaction> {
 	private List<Rule> signalRules;
 	private List<Rule> stateRules;
+	private List<Rule> generalRules;
 	private List<Action> actions;
 
 	public Interaction() {
 		signalRules = new ArrayList<>();
 		stateRules = new ArrayList<>();
+		generalRules = new ArrayList<>();
 		actions = new ArrayList<>();
 	}
 
-	public Interaction(List<Rule> signalRules, List<Rule> stateRules, List<Action> actions) {
+	public Interaction(List<Rule> signalRules, List<Rule> stateRules, List<Rule> generalRules, List<Action> actions) {
 		this.signalRules = signalRules;
 		this.stateRules = stateRules;
+		this.generalRules = generalRules;
 		this.actions = actions;
 	}
 
@@ -37,6 +40,16 @@ public class Interaction implements Copyable<Interaction> {
 
 		for (Rule rule : stateRules) {
 			if (!rule.fulfilledBy(object.getState())) {
+				allFulfilled = false;
+			}
+		}
+
+		StateData comboState = new StateData();
+		comboState.put("signal", signal.getState());
+		comboState.put("object", object.getState());
+
+		for (Rule rule : generalRules) {
+			if (!rule.fulfilledBy(comboState)) {
 				allFulfilled = false;
 			}
 		}
@@ -72,8 +85,17 @@ public class Interaction implements Copyable<Interaction> {
 		this.actions = actions;
 	}
 
+	public List<Rule> getGeneralRules() {
+		return generalRules;
+	}
+
+	public void setGeneralRules(List<Rule> generalRules) {
+		this.generalRules = generalRules;
+	}
+
 	@Override
 	public Interaction copy() {
-		return new Interaction(ObjectUtil.copyList(signalRules), ObjectUtil.copyList(stateRules), ObjectUtil.copyList(actions));
+		return new Interaction(ObjectUtil.copyList(signalRules), ObjectUtil.copyList(stateRules),
+				ObjectUtil.copyList(generalRules), ObjectUtil.copyList(actions));
 	}
 }

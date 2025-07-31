@@ -14,7 +14,7 @@ public abstract class StateModifier implements Copyable<StateModifier> {
         this.key = key;
     }
 
-    public abstract void modify(StateData data);
+    public abstract void modify(StateData data, StateData context);
 
     public String getKey() {
         return key;
